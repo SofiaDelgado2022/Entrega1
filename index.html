@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css"  />
+    <script src="app.js" defer></script>
+
+    <title>Piedra, papel, tijera by Sofía</title>
+  </head>
+  <body class="preload">
+    <div class="container">
+      <header class="header">
+        <h1 class="header__title">
+          <span>PIEDRA</span>
+          <span>PAPEL</span>
+          <span>TIJERA</span>
+        </h1>
+        <div class="score">
+          <div class="score__title">puntos</div>
+          <div class="score__number">0</div>
+        </div>
+      </header>
+      <section class="game">
+        <button class="choice-btn" data-choice="paper">
+          <div class="choice paper">
+            <img src="./images/icon-paper.svg" alt="Paper" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="scissors">
+          <div class="choice scissors">
+            <img src="./images/icon-scissors.svg" alt="Scissors" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="rock">
+          <div class="choice rock">
+            <img src="./images/icon-rock.svg" alt="Rock" />
+          </div>
+        </button>
+      </section>
+    </div>
+
+    <section class="results hidden">
+      <h2 class="results__heading">Elegiste</h2>
+      <h2 class="results__heading">Oponente eligió</h2>
+      <div class="results__result"></div>
+      <div class="results__winner hidden">
+        <h3 class="results__text"></h3>
+        <button class="play-again">Jugar de nuevo</button>
+      </div>
+      <div class="results__result"></div>
+    </section>
+
+    <button class="rules-btn" tabindex="1">Reglas</button>
+    <div class="modal">
+      <div class="modal__container">
+        <header class="modal__header">
+          <h2 class="modal__heading">Reglas</h2>
+          <button class="close-btn">
+            <img src="./images/icon-close.svg" alt="Close Button" />
+          </button>
+        </header>
+        <img
+          src="./images/image-rules.svg"
+          alt="Rules Image"
+          class="rules-img"
+        />
+      </div>
+    </div>
+
+     <!-- New button for ranking -->
+     <button class="ranking-btn" tabindex="2">Ranking</button>
+
+     <!-- New table for ranking (initially hidden) -->
+     <div class="ranking-table hidden">
+       <table border="1">
+         <caption>Sample Rankings</caption>
+         <thead>
+           <tr>
+             <th>Rank</th>
+             <th>Name</th>
+             <th>Score</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>1</td>
+             <td>Player 1</td>
+             <td>100</td>
+           </tr>
+           <tr>
+             <td>2</td>
+             <td>Player 2</td>
+             <td>90</td>
+           </tr>
+           <tr>
+             <td>3</td>
+             <td>Player 3</td>
+             <td>80</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+    <footer class="footer">
+      <div class="footer__description">
+        <span>Entrega número 1</span>
+        <span>Código por: Sofía Delgado</span>
+      </div>
+    </footer>
+  </body>
+</html>
