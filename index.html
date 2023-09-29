@@ -1,119 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="styles.css"  />
-    <script src="app.js" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Piedra, papel, tijera by Sofía</title>
-  </head>
-  <body class="preload">
-    <div class="container">
-      <header class="header">
-        <h1 class="header__title">
-          <span>PIEDRA</span>
-          <span>PAPEL</span>
-          <span>TIJERA</span>
-        </h1>
-        <div class="score">
-          <div class="score__title">puntos</div>
-          <div class="score__number">0</div>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>Piedra, papel, tijera by Sofía</title>
+</head>
+
+<body class="preload">
+  <div class="container">
+    <header class="header">
+      <h1 class="header__title">PIEDRA, PAPEL O TIJERA</h1>
+
+      <div class="btn-header">
+        <button class="rules-btn">Reglas</button>
+
+        <button onclick="openModal()" class="ranking-btn">Ranking</button>
+
+        <div id="myModal" class="container-modal">
+          <div class="content-modal">
+            <table>
+              <span>Rankings</span>
+              <thead>
+                <tr>
+                  <th>Ronda</th>
+                  <th>Jugador</th>
+                  <th>Computadora</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td></td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Player 2</td>
+                  <td>90</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Player 3</td>
+                  <td>80</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Player 3</td>
+                  <td>80</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Player 3</td>
+                  <td>80</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="container-close">
+            <button  onclick="closeModal()" class="rules-btn2">Cerrar</button>
+          </div>
+          </div>
         </div>
-      </header>
-      <section class="game">
-        <button class="choice-btn" data-choice="paper">
-          <div class="choice paper">
-            <img src="./images/icon-paper.svg" alt="Paper" />
-          </div>
-        </button>
-        <button class="choice-btn" data-choice="scissors">
-          <div class="choice scissors">
-            <img src="./images/icon-scissors.svg" alt="Scissors" />
-          </div>
-        </button>
-        <button class="choice-btn" data-choice="rock">
-          <div class="choice rock">
-            <img src="./images/icon-rock.svg" alt="Rock" />
-          </div>
-        </button>
-      </section>
-    </div>
 
-    <section class="results hidden">
-      <h2 class="results__heading">Elegiste</h2>
-      <h2 class="results__heading">Oponente eligió</h2>
-      <div class="results__result"></div>
-      <div class="results__winner hidden">
-        <h3 class="results__text"></h3>
-        <button class="play-again">Jugar de nuevo</button>
       </div>
-      <div class="results__result"></div>
+    </header>
+    <section class="game">
+      <h2 class="game__instruction">¡El primero en llegar a 5 puntos gana!</h2>
+
+      <article class="marcador">
+        <p class="nombre nombre-jugador">Jugador</p>
+        <p class="nombre nombre-computadora">Computadora</p>
+        <div class="puntos">
+          <span id="puntos-usuario">3</span>
+          <span>-</span>
+          <span id="puntos-computadora">2</span>
+        </div>
+      </article>
+
+      <article class="herramienta">
+        <h3 class="herramienta__text">Elegí tu herramienta para el próximo turno</h3>
+        <div class="armas">
+          <button class="arma" id="piedra🪨">
+            <div class="choice_piedra">
+              <img src="./assets/img/icon-rock.svg" />
+            </div>
+          </button>
+          <button class="arma" id="papel📋">
+            <div class="choice_papel">
+              <img src="./assets/img/icon-paper.svg" />
+            </div>
+          </button>
+          <button class="arma" id="tijera✂️">
+            <div class="choice_tijera">
+              <img src="./assets/img/icon-scissors.svg" />
+            </div>
+          </button>
+        </div>
+
+      </article>
+
+      <article class="resultado">
+        <p>
+          Usaste <span class="eleccion">papel</span><br>
+          y la computadora usó <span class="eleccion">piedra</span>
+        </p>
+        <p id="gana-punto">¡Ganaste un punto!</p>
+
+        <button class="reset-btn">Reiniciar juego</button>
+      </article>
+
     </section>
 
-    <button class="rules-btn" tabindex="1">Reglas</button>
-    <div class="modal">
-      <div class="modal__container">
-        <header class="modal__header">
-          <h2 class="modal__heading">Reglas</h2>
-          <button class="close-btn">
-            <img src="./images/icon-close.svg" alt="Close Button" />
-          </button>
-        </header>
-        <img
-          src="./images/image-rules.svg"
-          alt="Rules Image"
-          class="rules-img"
-        />
-      </div>
+
+
+   
+
+  </div>
+  </div>
+  <footer class="footer">
+    <div class="footer__description">
+      <span>Entrega número 1 |</span>
+      <span>Código por: Sofía Delgado</span>
     </div>
+  </footer>
+</body>
 
-     <!-- New button for ranking -->
-     <button class="ranking-btn" tabindex="2">Ranking</button>
+<script>
+  // Función para abrir el modal
+  function openModal() {
+      document.getElementById("myModal").style.display = "flex";
+  }
 
-     <!-- New table for ranking (initially hidden) -->
-     <div class="ranking-table hidden">
-       <table border="1">
-         <caption>Sample Rankings</caption>
-         <thead>
-           <tr>
-             <th>Rank</th>
-             <th>Name</th>
-             <th>Score</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr>
-             <td>1</td>
-             <td>Player 1</td>
-             <td>100</td>
-           </tr>
-           <tr>
-             <td>2</td>
-             <td>Player 2</td>
-             <td>90</td>
-           </tr>
-           <tr>
-             <td>3</td>
-             <td>Player 3</td>
-             <td>80</td>
-           </tr>
-         </tbody>
-       </table>
-     </div>
+  // Función para cerrar el modal
+  function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+  }
+</script>
 
-    <footer class="footer">
-      <div class="footer__description">
-        <span>Entrega número 1</span>
-        <span>Código por: Sofía Delgado</span>
-      </div>
-    </footer>
-  </body>
 </html>
