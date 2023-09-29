@@ -368,12 +368,14 @@ tbody tr:nth-child(odd) {
   background-color: var(--paper-1);
   color: white;
   text-align: center;
+  padding: 5px;
 }
 
 tbody tr:nth-child(even) {
   background-color: var(--paper-2);
   color: white;
   text-align: center;
+  padding: 5px;
 }
 
 table {
