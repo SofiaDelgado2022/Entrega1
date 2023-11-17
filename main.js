@@ -1,8 +1,10 @@
+// Variables que almacenan datos
 let nombreJugador = "";
 let puntosUsuario = 0;
 let puntosPC = 0;
 let numeroRonda = 1; 
 
+// Variables que interactuan con el DOM
 let contenedorPuntosUsuario = document.querySelector("#puntos-usuario");
 let contenedorPuntosPC = document.querySelector("#puntos-computadora");
 let mensaje = document.querySelector("#mensaje");
@@ -17,13 +19,14 @@ let login = document.querySelector(".login");
 
 let reiniciar = document.querySelector(".reset-btn");
 
+
 let botonesArmas = document.querySelectorAll(".arma");
 botonesArmas.forEach(boton => {
     boton.addEventListener("click", iniciarTurno);
 });
 
 
-
+// Este evento sucede cuando se carga completamente el contenido y envía el formulario
 document.addEventListener("DOMContentLoaded", function () {
     let formNombreJugador = document.getElementById("formNombreJugador");
 
@@ -135,18 +138,6 @@ function empate() {
     contenedorGanaPunto.innerText = "¡Empate!"
 }
 
-
-
-// Función para abrir el modal
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "flex";
-}
-
-// Función para cerrar el modal
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-}
-
 function reiniciarJuego() {
     reiniciar.classList.add("disabled");
     herramienta.classList.remove("disabled");
@@ -169,3 +160,15 @@ function reiniciarJuego() {
     game.style.display = "none";
 
 }
+
+
+// Función para abrir el modal
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "flex";
+}
+
+// Función para cerrar el modal
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+
