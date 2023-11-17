@@ -14,6 +14,19 @@
   color: var(--light-text);
 }
 
+input{
+  background: none;
+  padding:10px;
+  border-radius:10px;
+  margin: 10px;
+  border-color: var(--grey);
+  color: white;
+}
+
+.login{
+  padding:3rem;
+}
+
 :root {
   --light-text: #ffffff;
   --grey: hsl(217, 16%, 45%);
@@ -46,9 +59,12 @@
   justify-content: space-between;
 }
 
+.game{
+  display: none;
+}
 .game__instruction{
   text-align:center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .herramienta__text{
@@ -94,7 +110,7 @@
 
 .resultado{
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .reset-btn {
@@ -161,6 +177,27 @@
 background-color: var(--rock-2);
 }
 
+.init-btn2{
+  bottom: 2rem;
+  right: 1rem;
+  background: none;
+  outline: none;
+  border: 2px solid var(--scissors-1);
+  border-radius: 0.6rem;
+  color: white;
+  padding: 0.4rem 1rem;
+  font-family: inherit;
+  text-transform: inherit;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.init-btn2:hover{
+background-color: var(--scissors-2);
+}
+
+
 .ranking-btn{
   bottom: 2rem;
   right: 1rem;
@@ -182,6 +219,8 @@ background-color: var(--rock-2);
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   padding: 0 2rem;
   text-align: center;
@@ -197,7 +236,7 @@ background-color: var(--rock-2);
   position: relative;
   max-width: 350px;
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 
@@ -215,6 +254,9 @@ background-color: var(--rock-2);
   text-align: center;
 } 
 
+.herramienta{
+  margin-top: -1rem;
+}
 
 .elegi-tu-arma {
   margin-bottom: 2rem;
@@ -230,7 +272,7 @@ background-color: var(--rock-2);
   display: flex;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .arma {
@@ -244,7 +286,7 @@ background-color: var(--rock-2);
 
 .mensaje {
   margin-bottom: 2rem;
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 .mensaje .eleccion {
