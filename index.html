@@ -17,57 +17,57 @@
       <h1 class="header__title">PIEDRA, PAPEL O TIJERA</h1>
 
       <div class="btn-header">
-        <button class="rules-btn">Reglas</button>
+        <button class="rules-btn" onclick="openModal('modalRules')">Reglas</button>
 
-        <button onclick="openModal()" class="ranking-btn">Ranking</button>
+        <button onclick="openModal('modalRanking')" class="ranking-btn">Ranking</button>
 
-        <div id="myModal" class="container-modal">
+        <div id="modalRules" class="container-modal">
           <div class="content-modal">
-            <table>
+            <p>El objetivo es vencer al oponente seleccionando el arma que gana, según las siguientes reglas:</p>
+            <ul>
+              <li>La piedra aplasta la tijera.</li>
+              <li>La tijera corta el papel</li>
+              <li>El papel envuelve la piedra</li>
+              <li>En caso de empate, se juega otra vez.</li>
+              <li>El primero en llegar a 5 puntos, gana la partida.</li>
+            </ul>
+            <div class="container-close">
+              <button onclick="closeModal('modalRules')" class="rules-btn2">Cerrar</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="modalRanking" class="container-modal">
+          <div class="content-modal">
+            <table >
               <span>Rankings</span>
               <thead>
                 <tr>
                   <th>Ronda</th>
-                  <th>Jugador</th>
-                  <th>Computadora</th>
+                  <th>Resultado</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td></td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>1</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td></td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>1</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td></td>
-                  <td>1</td>
-                </tr>
+              <tbody id="table tbody">
               </tbody>
             </table>
             <div class="container-close">
-              <button onclick="closeModal()" class="rules-btn2">Cerrar</button>
+              <button onclick="closeModal('modalRanking')" class="rules-btn2">Cerrar</button>
             </div>
           </div>
         </div>
 
       </div>
     </header>
+
+    <section class="login">
+      <h1>Antes de jugar...</h1>
+      <form id="formNombreJugador" onsubmit="return iniciarJuego()">
+        <label for="nombre-jugador">Por favor, ingrese su nombre:</label>
+        <input type="text" id="nombre-jugador" required />
+        <button class="init-btn2" type="submit">Iniciar Juego</button>
+      </form>
+    </section>
+
     <section class="game">
       <h2 class="game__instruction">¡El primero en llegar a 5 puntos gana!</h2>
 
@@ -75,26 +75,26 @@
         <p class="nombre nombre-jugador">Jugador</p>
         <p class="nombre nombre-computadora">Computadora</p>
         <div class="puntos">
-          <span id="puntos-usuario">3</span>
+          <span id="puntos-usuario">0</span>
           <span>-</span>
-          <span id="puntos-computadora">2</span>
+          <span id="puntos-computadora">0</span>
         </div>
       </article>
 
-      <article class="herramienta">
-        <h3 class="herramienta__text">Elegí tu herramienta para el próximo turno</h3>
+      <article class="herramienta" id="elegi-herramienta">
+        <h3 class="herramienta__text">Elegí tu jugada para el próximo turno</h3>
         <div class="armas">
-          <button class="arma" id="piedra🪨">
+          <button class="arma" id="piedra">
             <div class="choice_piedra">
               <img src="./assets/img/icon-rock.svg" />
             </div>
           </button>
-          <button class="arma" id="papel📋">
+          <button class="arma" id="papel">
             <div class="choice_papel">
               <img src="./assets/img/icon-paper.svg" />
             </div>
           </button>
-          <button class="arma" id="tijera✂️">
+          <button class="arma" id="tijera">
             <div class="choice_tijera">
               <img src="./assets/img/icon-scissors.svg" />
             </div>
@@ -103,14 +103,14 @@
 
       </article>
 
-      <article class="resultado">
+      <article class="resultado mensaje disabled" id="mensaje">
         <p>
-          Usaste <span class="eleccion">papel</span><br>
-          y la computadora usó <span class="eleccion">piedra</span>
+          Usaste <span class="eleccion" id="eleccion-usuario">papel</span><br>
+          y la computadora usó <span class="eleccion" id="eleccion-computadora">piedra</span>
         </p>
         <p id="gana-punto">¡Ganaste un punto!</p>
 
-        <button class="reset-btn">Reiniciar juego</button>
+        <button class="reset-btn" onclick="reiniciarJuego()">Reiniciar juego</button>
       </article>
 
     </section>
@@ -123,22 +123,14 @@
   </div>
   <footer class="footer">
     <div class="footer__description">
-      <span>Entrega número 1 |</span>
-      <span>Código por: Sofía Delgado</span>
+      <span>Entrega número 2 |</span>
+      <span>Código por: Sofía Delgado - 2023</span>
     </div>
   </footer>
 </body>
 
-<script>
-  // Función para abrir el modal
-  function openModal() {
-    document.getElementById("myModal").style.display = "flex";
-  }
+<script src="main.js">
 
-  // Función para cerrar el modal
-  function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-  }
 </script>
 
 </html>
